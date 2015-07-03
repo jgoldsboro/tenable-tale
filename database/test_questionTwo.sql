@@ -1,0 +1,5 @@
+SELECT Owner.age
+FROM Owner
+INNER JOIN Car
+WHERE Owner.age BETWEEN 50 AND 59
+GROUP BY Owner.age
