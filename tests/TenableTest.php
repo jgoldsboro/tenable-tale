@@ -36,8 +36,8 @@ class TenableTest extends \PHPUnit_Framework_TestCase
     {
         $query = file_get_contents(__DIR__ . "/../database/questionTwo.sql");
         $result = $this->db->query($query); 
-        $this->assertEquals(3,$result->numColumns());
-        $expectedColumns = array("name","make","model");
+        $this->assertEquals(3, $result->numColumns());
+        $expectedColumns = array("name", "make", "model");
         
         foreach ($expectedColumns as $key => $value)
             $this->assertEquals($value, $result->columnName($key));
@@ -49,8 +49,8 @@ class TenableTest extends \PHPUnit_Framework_TestCase
         $result = $this->db->query($query); 
        
         while ($rs = $result->fetchArray()) {
-            $this->assertGreaterThanOrEqual(50,$rs['age']);
-            $this->assertLessThan(60,$rs['age']);
+            $this->assertGreaterThanOrEqual(50, $rs['age']);
+            $this->assertLessThan(60, $rs['age']);
         }
     }
 
@@ -64,7 +64,7 @@ class TenableTest extends \PHPUnit_Framework_TestCase
         $clone = $data;
         incrementIntegerInArray($data);
         array_walk_recursive($clone, array($this, 'increment'));
-        $this->assertEquals($clone,$data);
+        $this->assertEquals($clone, $data);
     }
     
     /**
@@ -85,14 +85,14 @@ class TenableTest extends \PHPUnit_Framework_TestCase
      */
     public function testQFour()
     {
-        $even = array(1,2,3,5,8,13,21,34,55,89);
-        $this->assertTrue(locate($even,13));
-        $odd = array(-10,-3,1,2.2,3.3,5,8,13,21,34,55,89,144);
-        $this->assertTrue(locate($odd,144));
-        $this->assertTrue(locate($odd,-10));
+        $even = array(1, 2, 3, 5, 8, 13, 21, 34, 55, 89);
+        $this->assertTrue(locate($even, 13));
+        $odd = array(-10, -3, 1, 2.2, 3.3, 5, 8, 13, 21, 34, 55, 89, 144);
+        $this->assertTrue(locate($odd, 144));
+        $this->assertTrue(locate($odd, -10));
 
-        $this->assertFalse(locate($even,1000));
-        $this->assertFalse(locate($odd,1000));
+        $this->assertFalse(locate($even, 1000));
+        $this->assertFalse(locate($odd, 1000));
     }
     
     /**
@@ -102,7 +102,7 @@ class TenableTest extends \PHPUnit_Framework_TestCase
      */
     public function testQFourInvalidInputSortedIntegerArray()
     {
-        locate(null,123);
+        locate(null, 123);
     }
 
     /**
@@ -112,8 +112,8 @@ class TenableTest extends \PHPUnit_Framework_TestCase
      */
     public function testQFourInvalidInputIntegerValue()
     {
-        $even = array(1,2,3,5,8,13,21,34,55,89);
-        locate($even,null);
+        $even = array(1, 2, 3, 5, 8, 13, 21, 34, 55, 89);
+        locate($even, null);
     }
 
     /**
@@ -131,6 +131,6 @@ class TenableTest extends \PHPUnit_Framework_TestCase
         );
         preg_match($chart[24], $log, $matches);
         $expectedIp = '192.168.1.126';
-        $this->assertEquals($expectedIp,$matches[0]);
+        $this->assertEquals($expectedIp, $matches[0]);
     }
 }

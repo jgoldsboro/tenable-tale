@@ -1,5 +1,6 @@
 # Quick Guide
 To install data for SQLite: sqlite3 tenable.db < database/tenable.sql
+
 To run tests: phpunit --bootstrap src/autoload.php tests/TenableTest.php
 
 # Notes

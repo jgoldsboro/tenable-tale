@@ -9,12 +9,11 @@ function incrementIntegerInArray(&$array) {
         throw new InvalidArgumentException('Invalid Array');
 
     foreach ($array as $key => &$value) {
-        if(is_array($value))
+        if (is_array($value))
             incrementIntegerInArray($value);
         else
-            if (is_integer($value)) {
-                $value += 1;
-            }
+            if (is_integer($value))
+                $value++;
     }
 }
 
@@ -39,7 +38,7 @@ function locate($sortedIntegerArray = array(), $integerValue) {
         return locate($left, $integerValue);
     } else {
         if ($count == 2 || $count == 3) 
-            if($integerValue == end($right))
+            if ($integerValue == end($right))
                 return true;
             else
                 return false;
